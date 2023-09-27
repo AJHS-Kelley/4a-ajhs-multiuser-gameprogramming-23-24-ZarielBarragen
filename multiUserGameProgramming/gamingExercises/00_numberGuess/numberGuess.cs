@@ -84,6 +84,39 @@ namespace numberGuess
             Console.WriteLine("Minimum: " + rangeMin);
             Console.Writeline("Maximum: " + rangeMax);
             Console.WriteLine("Num. Guesses: " + numGuesses);
+
+            // Start the Match
+            while (playerScore != 3 && cpuScore != 3)
+            {
+                secretNumber = rnd.Next(rangeMin, rangeMax + 1);
+
+                // Start each round
+                for (int i = 0; i < numGuesses; i++)
+                {
+                    Console.WriteLine("Guess a number:");
+                    int guess = int.Parse(Console.ReadLine());
+
+                    if (guess == secretNumber)
+                    {
+                        Console.WriteLine("Congratulations! You've guessed correctly.");
+                        playerScore++;
+                        break; // Exit the loop if guessed correctly
+                    }
+
+                    else
+                    {
+                        if (guess < secretNumber)
+                            Console.WriteLine("Your guess is too low.");
+                        else
+                            Console.WriteLine("Your guess is too high.");
+
+                        if (i == numGuesses - 1)
+                        {
+                            Console.WriteLine("You've run out of guesses! CPU wins this round.");
+                            cpuScore++;
+                        }
+
+                    }                   
         }
     }
 }
