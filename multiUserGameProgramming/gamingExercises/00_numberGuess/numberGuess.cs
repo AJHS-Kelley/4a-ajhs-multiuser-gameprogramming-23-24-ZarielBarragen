@@ -60,21 +60,21 @@ namespace numberGuess
             Console.WriteLine("You have selected " + difficulty);
             if(difficulty == "Easy")
             {
-                rangeMax = 0;
-                rangeMin = 10;
+                rangeMin = 0;
+                rangeMax = 10;
                 numGuesses = 5;
             }            
             else if (difficulty == "Normal")
             {
-                rangeMax = 0;
-                rangeMin = 25;
+                rangeMin = 0;
+                rangeMax = 25;
                 numGuesses = 4;
             }
 
             else if (difficulty == "Hard")
             {
-                rangeMax = 0;
-                rangeMin = 100;
+                rangeMin = 0;
+                rangeMax = 100;
                 numGuesses = 3;
             }
             else 
