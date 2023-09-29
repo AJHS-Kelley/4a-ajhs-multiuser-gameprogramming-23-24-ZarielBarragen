@@ -55,7 +55,7 @@ namespace numberGuess
 
             // Difficuly Selection
             Console.WriteLine("Please enter Easy, Normal, or Hard and press ENTER");
-            difficulty = Console.Readline();
+            difficulty = Console.ReadLine();
             // Console.ReadLine() will save whatever gets typed to a STRING by default
             Console.WriteLine("You have selected " + difficulty);
             if(difficulty == "Easy")
@@ -64,14 +64,14 @@ namespace numberGuess
                 rangeMin = 10;
                 numGuesses = 5;
             }            
-            else if ("Normal")
+            else if (difficulty == "Normal")
             {
                 rangeMax = 0;
                 rangeMin = 25;
                 numGuesses = 4;
             }
 
-            else if ("Hard")
+            else if (difficulty == "Hard")
             {
                 rangeMax = 0;
                 rangeMin = 100;
@@ -82,17 +82,25 @@ namespace numberGuess
                 Console.WriteLine("You didnt pick anything, goofy");
             }
             Console.WriteLine("Minimum: " + rangeMin);
-            Console.Writeline("Maximum: " + rangeMax);
+            Console.WriteLine("Maximum: " + rangeMax);
             Console.WriteLine("Num. Guesses: " + numGuesses);
 
             // Start the Match
             while (playerScore != 3 && cpuScore != 3)
             {
-                secretNumber = rnd.Next(rangeMin, rangeMax + 1);
+                // Any code you run want to run BEFORE each round goes here.
+                // Generate Secret Number
+                Random rndNum = new Random();
+                secretNumber = rndNum.Next(rangeMin, rangeMax + 1);
+                Console.WriteLine("Player Score: " + playerScore + "\n");
+                Console.WriteLine("CPU Score: " + cpuScore + "\n");
 
                 // Start each round
                 for (int i = 0; i < numGuesses; i++)
                 {
+                    Console.WriteLine(" You have used " + numAttempts + " this round. \n");
+                    Console.WriteLine("You must guess between " + rangeMin + "and " + rangeMax + ". \n");
+
                     Console.WriteLine("Guess a number:");
                     int guess = int.Parse(Console.ReadLine());
 
@@ -100,23 +108,39 @@ namespace numberGuess
                     {
                         Console.WriteLine("Congratulations! You've guessed correctly.");
                         playerScore++;
-                        break; // Exit the loop if guessed correctly
+                        break; 
+                        // Exit the loop if guessed correctly
                     }
 
                     else
                     {
                         if (guess < secretNumber)
+                        {
                             Console.WriteLine("Your guess is too low.");
+                        }
                         else
+                        {
                             Console.WriteLine("Your guess is too high.");
+                        }
+                     numAttempts++;
 
                         if (i == numGuesses - 1)
                         {
                             Console.WriteLine("You've run out of guesses! CPU wins this round.");
                             cpuScore++;
                         }
-
-                    }                   
+                    } 
+                }
+            }
+            if (playerScore >= 3)
+            {
+                Console.WriteLine("You've won the game!");
+            }
+            else
+            {
+                Console.WriteLine("You have lickity lost this game!");
+            }
         }
     }
 }
+    
