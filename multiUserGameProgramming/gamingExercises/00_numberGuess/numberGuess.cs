@@ -91,7 +91,7 @@ namespace numberGuess
                 // Any code you run want to run BEFORE each round goes here.
                 // Generate Secret Number
                 Random rndNum = new Random();
-                secretNumber = rndNum.Next(rangeMin, rangeMax + 1);
+                secretNumber = rndNum.Next(rangeMax, rangeMin);
                 Console.WriteLine("Player Score: " + playerScore + "\n");
                 Console.WriteLine("CPU Score: " + cpuScore + "\n");
 
@@ -102,7 +102,7 @@ namespace numberGuess
                     Console.WriteLine("You must guess between " + rangeMin + "and " + rangeMax + ". \n");
 
                     Console.WriteLine("Guess a number:");
-                    int guess = int.Parse(Console.ReadLine());
+                    int guess = System.Convert.ToInt32(Console.ReadLine());
 
                     if (guess == secretNumber)
                     {
@@ -124,11 +124,11 @@ namespace numberGuess
                         }
                      numAttempts++;
 
-                        if (i == numGuesses - 1)
-                        {
-                            Console.WriteLine("You've run out of guesses! CPU wins this round.");
-                            cpuScore++;
-                        }
+                    if (i == numGuesses - 1)
+                    {
+                        Console.WriteLine("You've run out of guesses! CPU wins this round.");
+                        cpuScore++;
+                    }
                     } 
                 }
             }
