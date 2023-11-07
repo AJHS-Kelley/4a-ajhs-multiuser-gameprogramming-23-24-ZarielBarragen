@@ -1,4 +1,6 @@
 // Isaiah Reyes, MethodsParameters, v0.5
+// All required examples provided. 
+
 using System;
 
 namespace MethodsParameters
