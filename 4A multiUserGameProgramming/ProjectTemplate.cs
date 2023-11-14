@@ -1,9 +1,9 @@
 // Isaiah Reyes, Project Template, v0.1
 using System;
 
-namespace MethodsParameters
+namespace UPDATEFOREACHPROGRAM
 {
-    class MethodsParameters
+    class UDATEFOREACHPROGRAM
     {
         
         static void Main(string[] args)
