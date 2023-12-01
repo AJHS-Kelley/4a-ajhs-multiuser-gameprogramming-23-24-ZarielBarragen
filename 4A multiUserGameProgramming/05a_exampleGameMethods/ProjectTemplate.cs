@@ -1,30 +1,12 @@
-// Isaiah Reyes, Captain, v0.1
+// Isaiah Reyes, Captain, v0.2
 using System;
 
-namespace AlleyCats
+namespace TextAdventureGame
 {
-    class Captain
+    class AdventureGame
     {
-          // Variables
-        int health; // Health of Captain, an integer variable
-        float specialAttackCharge = 1.0f; // Charge level for special attack, a float variable
-        string name = "Captain"; // Name of the character, a string variable
-        bool isTeleporting = false; // State of teleporting, a boolean variable
-        int[] telekinesisDamageValues = { 10, 20, 30 }; // Damage values for telekinesis attacks, an array variable
-       
-        // Using assignment operators
-        public Captain()
-        {
-            health = 100; // using '=' assignment operator
-            specialAttackCharge -= 0.1f; // using '-=' assignment operator
-        }
-
-        // Method with no return value
-        // Teleports Captain to a new location
         public void Teleport()
         {
-            pass; // Placeholder for the actual code
-            // Logic for teleportation
         }
 
         static void Methodtwo()
@@ -43,7 +25,35 @@ namespace AlleyCats
         }
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Welcome to the Text Adventure Game!");
+            while (true)
+            {
+                Console.WriteLine("\nChoose an action:");
+                Console.WriteLine("1. Explore");
+                Console.WriteLine("2. Check Inventory");
+                Console.WriteLine("3. Rest");
+                Console.WriteLine("4. Exit Game");
+                string userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "1":
+                        Explore();
+                        break;
+                    case "2":
+                        CheckInventory();
+                        break;
+                    case "3":
+                        Rest();
+                        break;
+                    case "4":
+                        Console.WriteLine("Thank you for playing!");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid action. Please choose again.");
+                        break;
+                }
+            }
         }
     }
 }
