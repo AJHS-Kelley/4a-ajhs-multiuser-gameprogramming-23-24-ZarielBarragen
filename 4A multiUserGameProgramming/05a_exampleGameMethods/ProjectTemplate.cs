@@ -1,4 +1,4 @@
-// Isaiah Reyes, Captain, v0.5
+// Isaiah Reyes, Captain, v0.6
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +6,16 @@ namespace TextAdventureGame
 {
     class AdventureGame
     {
+        public int Health { get; private set; }
+        public TimeSpan TimeSpent { get; private set; }
+
+        public Player()
+        {
+            // Start the player with full health and no time spent
+            Health = 100;
+            TimeSpent = TimeSpan.Zero;
+        }
+        
         // Method for the explore action
         static void Explore()
         {
@@ -42,9 +52,12 @@ namespace TextAdventureGame
             }
         }
 
-        static RETURNTYPE MethodThree()
+         // Method to simulate resting
+        public void Rest()
         {
-
+            // Assume each rest heals 10 points up to the maximum of 100, and takes 1 hour
+            Health = Math.Min(Health + 10, 100);
+            TimeSpent = TimeSpent.Add(TimeSpan.FromHours(1));
         }
 
         static RETURNTYPE MethodFour()
