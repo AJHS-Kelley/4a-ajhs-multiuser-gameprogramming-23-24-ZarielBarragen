@@ -1,12 +1,27 @@
-// Isaiah Reyes, Captain, v0.3
+// Isaiah Reyes, Captain, v0.4
 using System;
+using System.Collections.Generic;
 
 namespace TextAdventureGame
 {
     class AdventureGame
     {
-        public void Teleport()
+        // Method for the explore action
+        static void Explore()
         {
+            Console.WriteLine("You explore the ancient ruins and find a treasure chest!");
+
+            // Random chance of finding an item
+            Random rnd = new Random();
+            if (rnd.Next(0, 2) == 1) // 50% chance
+            {
+                Console.WriteLine("Inside the chest, you find a golden amulet!");
+                inventory.Add("Golden Amulet");
+            }
+            else
+            {
+                Console.WriteLine("The chest is empty. Better luck next time.");
+            }
         }
 
         static void Methodtwo()
