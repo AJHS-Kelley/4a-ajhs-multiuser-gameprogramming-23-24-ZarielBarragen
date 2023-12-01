@@ -1,4 +1,4 @@
-// Isaiah Reyes, Captain, v0.4
+// Isaiah Reyes, Captain, v0.5
 using System;
 using System.Collections.Generic;
 
@@ -24,9 +24,22 @@ namespace TextAdventureGame
             }
         }
 
-        static void Methodtwo()
+         static void CheckInventory()
         {
+            Console.WriteLine("You check your backpack.");
 
+            // Display items in the inventory
+            if (inventory.Count == 0)
+            {
+                Console.WriteLine("Your backpack is empty.");
+            }
+            else
+            {
+                foreach (string item in inventory)
+                {
+                    Console.WriteLine($"- {item}");
+                }
+            }
         }
 
         static RETURNTYPE MethodThree()
