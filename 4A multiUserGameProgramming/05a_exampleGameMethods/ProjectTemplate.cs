@@ -1,4 +1,4 @@
-// Isaiah Reyes, Captain, v0.6
+// Isaiah Reyes, Captain, v0.8
 using System;
 using System.Collections.Generic;
 
@@ -60,10 +60,27 @@ namespace TextAdventureGame
             TimeSpent = TimeSpent.Add(TimeSpan.FromHours(1));
         }
 
-        static RETURNTYPE MethodFour()
+        // Additional method for searching for food
+        static string SearchForFood()
         {
+            // Simulate the chance of finding food
+            Random rnd = new Random();
+            int chance = rnd.Next(1, 101); // Random number between 1 and 100
+
+            // Let's assume there's a 30% chance to find food
+            if (chance <= 30)
+            {
+                // Add food to inventory
+                inventory.Add("Food");
+                return "You found some food and added it to your backpack!";
+            }
+            else
+            {
+                return "You searched for food but found nothing.";
+            }
 
         }
+
         static void Main(string[] args)
         {
            Console.WriteLine("Welcome to the Text Adventure Game!");
@@ -76,6 +93,7 @@ namespace TextAdventureGame
                 Console.WriteLine("2. Check Inventory");
                 Console.WriteLine("3. Rest");
                 Console.WriteLine("4. Exit Game");
+                Console.WriteLine("5. Search for Food");
                 
                 // Read player's input
                 string userInput = Console.ReadLine();
@@ -95,6 +113,10 @@ namespace TextAdventureGame
                     case "4":
                         Console.WriteLine("Thank you for playing!");
                         return; // Exit the game loop and end the program
+                    case "5":
+                        string searchResult = SearchForFood();
+                        Console.WriteLine(searchResult);
+                        break;
                     default:
                         Console.WriteLine("Invalid action. Please choose again.");
                         break;
