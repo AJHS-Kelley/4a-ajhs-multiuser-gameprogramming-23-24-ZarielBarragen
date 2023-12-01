@@ -125,3 +125,6 @@ namespace TextAdventureGame
         }
     }
 }
+
+
+// Code Review by Xavier Oliver
