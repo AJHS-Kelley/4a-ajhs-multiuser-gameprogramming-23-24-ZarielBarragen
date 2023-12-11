@@ -57,4 +57,23 @@ class TurnBasedBattleGame
             Console.WriteLine($"You healed for {healAmount} health!");
         }
     }
+
+    // Handles the enemy's turn
+    void EnemyTurn()
+    {
+        int action = new Random().Next(0, 2);
+        if (action == 0)
+        {
+            int damage = CalculateDamage();
+            playerHealth -= damage;
+            Console.WriteLine($"Enemy attacked you for {damage} damage!");
+        }
+        else
+        {
+            // Enemy heals itself
+            float heal = 10.0f;
+            enemyHealth = Math.Min(enemyHealth + heal, 100.0f);
+            Console.WriteLine($"Enemy healed itself for {heal} health!");
+        }
+    }
 }    
