@@ -1,4 +1,4 @@
-// Isaiah Reyes, Final Try, v0.1
+// Isaiah Reyes, Final Try, v0.3
 using System;
 
 class TurnBasedBattleGame
@@ -16,4 +16,45 @@ class TurnBasedBattleGame
         game.StartGame();
     }
 
-}
+    // Starts the game
+    void StartGame()
+    {
+        Console.WriteLine("Turn-Based Battle Game!");
+        while (playerHealth > 0 && enemyHealth > 0)
+        {
+            if (isPlayerTurn)
+            {
+                PlayerTurn();
+            }
+            else
+            {
+                EnemyTurn();
+            }
+
+            isPlayerTurn = !isPlayerTurn; // Switch turns
+        }
+
+        EndGame();
+    }
+
+    // Handles the player's turn
+    void PlayerTurn()
+    {
+        Console.WriteLine("Choose an action: \n1. Attack \n2. Heal");
+        string choice = Console.ReadLine();
+
+        if (choice == "1")
+        {
+            // Attack
+            int damage = CalculateDamage();
+            enemyHealth -= damage;
+            Console.WriteLine($"You attacked the enemy for {damage} damage!");
+        }
+        else if (choice == "2")
+        {
+            // Heal
+            playerHealth = Math.Min(playerHealth + healAmount, 100); // Ensure health does not exceed 100
+            Console.WriteLine($"You healed for {healAmount} health!");
+        }
+    }
+}    
