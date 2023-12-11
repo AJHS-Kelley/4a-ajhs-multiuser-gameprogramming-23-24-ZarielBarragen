@@ -8,8 +8,10 @@ namespace TextAdventureGame
     {
         public int Health { get; private set; }
         public TimeSpan TimeSpent { get; private set; }
+        private static List<string> inventory = new List<string> { "Map", "Rope" };
+        private static Player player = new Player()
 
-        public Player()
+        public void Player()
         {
             // Start the player with full health and no time spent
             Health = 100;
@@ -58,29 +60,25 @@ namespace TextAdventureGame
             // Assume each rest heals 10 points up to the maximum of 100, and takes 1 hour
             Health = Math.Min(Health + 10, 100);
             TimeSpent = TimeSpent.Add(TimeSpan.FromHours(1));
+            player.Rest(); // Rest method on the player object
+            Console.WriteLine($"You rest for a while. Health is now {player.Health}.");
+            Console.WriteLine($"Time spent resting: {player.TimeSpent.Hours} hours.");
         }
 
         // Additional method for searching for food
-        static string SearchForFood()
+         static string SearchForFood()
         {
-            // Simulate the chance of finding food
             Random rnd = new Random();
-            int chance = rnd.Next(1, 101); // Random number between 1 and 100
-
-            // Let's assume there's a 30% chance to find food
-            if (chance <= 30)
+            if (rnd.Next(0, 2) == 1) // 50% chance
             {
-                // Add food to inventory
-                inventory.Add("Food");
+                AdventureGame.inventory.Add("Food"); // Access static member with class name
                 return "You found some food and added it to your backpack!";
             }
             else
             {
                 return "You searched for food but found nothing.";
             }
-
         }
-
         static void Main(string[] args)
         {
            Console.WriteLine("Welcome to the Text Adventure Game!");
@@ -125,6 +123,5 @@ namespace TextAdventureGame
         }
     }
 }
-
 
 // Code Review by Xavier Oliver
