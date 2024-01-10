@@ -60,10 +60,41 @@ namespace ReviewProject
             Convert.ToInt64() // Long
 
 
-             string intToString = Convert.ToString(noDogs);
-             double stringToDouble = Convert.ToDouble(yourCat);
-             int stringToInt = Convert.ToInt32(yourDog);
-             long floatToLong = Convert.ToInt64(yourDad);
+            string intToString = Convert.ToString(noDogs);
+            double stringToDouble = Convert.ToDouble(yourCat);
+            int stringToInt = Convert.ToInt32(yourDog);
+            long floatToLong = Convert.ToInt64(yourDad);
+
+            // Switch Statment
+            int dayOfWeek = 5;
+            switch (dayOfWeek)
+            {
+                case 1:
+                    Console.WriteLine("The day is sunday. \n");
+                    break;
+                case 2:
+                    Console.WriteLine("The day is monday. \n");
+                    break;
+                case 3:
+                    Console.WriteLine("The day is tuesday. \n");
+                    break;
+                case 4:
+                    Console.WriteLine("The day is wednesday. \n");
+                    break;
+                case 5:
+                    Console.WriteLine("The day is thursday. \n");
+                    break;
+                case 6:
+                    Console.WriteLine("The day is friday. \n");
+                    break;
+                case 7:
+                    Console.WriteLine("The day is saturday. \n");
+                    break;    
+                default:
+                    Console.WriteLine("No match found. \n");
+                    break;
+            }
+
 
 
             
