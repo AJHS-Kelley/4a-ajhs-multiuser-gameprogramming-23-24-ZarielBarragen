@@ -60,6 +60,10 @@ namespace TextAdventureGame
             // Assume each rest heals 10 points up to the maximum of 100, and takes 1 hour
             Health = Math.Min(Health + 10, 100);
             TimeSpent = TimeSpent.Add(TimeSpan.FromHours(1));
+        }
+
+        static void Rest()
+        {
             player.Rest(); // Rest method on the player object
             Console.WriteLine($"You rest for a while. Health is now {player.Health}.");
             Console.WriteLine($"Time spent resting: {player.TimeSpent.Hours} hours.");
